@@ -96,7 +96,7 @@
     padding-bottom: 40px; border-bottom: 1px solid var(--line);
   }
   article { font-size: 17px; line-height: 1.75; }
-  article p { margin: 0 0 22px; }
+  article p { margin: 0 0 22px; text-align: justify; text-justify: inter-word; hyphens: auto; }
   article h2 {
     font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 44px 0 18px;
   }
@@ -120,22 +120,28 @@
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px;
     margin: 0 0 44px; border: 1px solid var(--line); display: block;
   }
+  .carousel-wrap { position: relative; display: flex; align-items: center; gap: 8px; margin: 0 0 40px; }
+  .carousel-track {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; padding-bottom: 4px;
+  }
+  .carousel-track::-webkit-scrollbar { height: 6px; }
+  .carousel-track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .carousel-track a {
+    flex: 0 0 220px; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); scroll-snap-align: start; display: block;
+  }
+  .carousel-track img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .carousel-btn {
+    flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--surface); color: var(--fg); font-size: 18px; cursor: pointer;
+    display: grid; place-items: center; transition: background 150ms;
+  }
+  .carousel-btn:hover { background: var(--surface2); }
   .gallery-heading {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--accent); margin: 48px 0 18px;
   }
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px;
-    margin: 0 0 40px;
-  }
-  .gallery-grid a {
-    display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .gallery-grid img {
-    width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 200ms ease;
-  }
-  .gallery-grid a:hover img { transform: scale(1.06); }
   .inline-photo {
     width: 100%; border-radius: 14px; margin: 32px 0; display: block;
     border: 1px solid var(--line);
@@ -154,6 +160,7 @@
       <a href="index.html#media">Videos</a>
       <a href="index.html#about">About</a>
       <a href="index.html#newsletter">Newsletter</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -165,67 +172,37 @@
   <h1>Taking the Leap</h1>
   <p class="excerpt">How taking a chance on love helped me discover what makes me happy.</p>
   <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=756,fit=crop,f=jpeg/meP1vNen3OHxKK2Y/img_7985-Yyv08RgWEPi4w7M6.JPG" alt="Taking the Leap" class="hero-image">
-  <article><p class="lede-quote">"Do not go where the path may lead, go instead where there is no path and leave a trail." — Ralph Waldo Emerson</p>
-    <p>Three months ago I landed in Kuala Lumpur chasing something that felt like it had stepped out of a fairytale. It didn't work out the way I hoped — but the turbulence taught me more about community, self-acceptance, and resilience than the fairytale part ever could have. Here's how it started.</p>
-    
-    <img src="taking-the-leap/gallery-1.jpg" alt="Taking the Leap — photo 1" class="inline-photo" loading="lazy">
-
-    <p class="lede-quote">To respect her privacy, I've changed her name to Jane.</p>
-    
-    <img src="taking-the-leap/gallery-2.jpg" alt="Taking the Leap — photo 2" class="inline-photo" loading="lazy">
-
-    <h2>The fairytale</h2>
-    
-    <img src="taking-the-leap/gallery-3.jpg" alt="Taking the Leap — photo 3" class="inline-photo" loading="lazy">
-
-    <p>It began with an unplanned overnight stay on Isla del Sol, on Lake Titicaca in Bolivia, six exhausting weeks into a trip through Chile, Argentina, and Uruguay. My plan was a quick day trip from La Paz. Instead, I decided to stay overnight, and everyone in our travel group but Jane and I headed back that evening — she'd booked a later ferry with the same goal of hiking the island's north side, so we swapped contact info for the trek.</p>
-    
-    <img src="taking-the-leap/gallery-4.jpg" alt="Taking the Leap — photo 4" class="inline-photo" loading="lazy">
-
-    <p>I ran into her again that evening in the old town, and we ended up sharing dinner at the only restaurant still open, overlooking the lake, while a storm rolled in outside. Three hours flew by before the owner told us they were closing — we walked back through torrential rain and pitch dark, and I made sure she got to her hotel gate safely before running back to mine.</p>
-    
-    <img src="taking-the-leap/gallery-5.png" alt="Taking the Leap — photo 5" class="inline-photo" loading="lazy">
-
-    <p>The next morning's seven-hour hike together felt like we'd known each other for years. She's originally from Kuala Lumpur; I was struck by how brave she was to be exploring South America solo, and I recognized a lot of my own younger self in the journey she was on.</p>
-    
-    <img src="taking-the-leap/gallery-6.jpg" alt="Taking the Leap — photo 6" class="inline-photo" loading="lazy">
-
-    <p>Over the following weeks we stayed in touch as digital pen pals, then met up again for a twelve-hour layover in Bogotá — cafe hopping, wandering districts, time flying the same way it had in Bolivia. When I later routed through Malaysia on a whim during my swing through Asia, she showed me around Kuala Lumpur, Ipoh, and Penang. By the time I invited her to join me in Bangkok and Hong Kong and she said yes, I knew I was falling for her.</p>
-    
-    <img src="taking-the-leap/gallery-7.jpg" alt="Taking the Leap — photo 7" class="inline-photo" loading="lazy">
-
+  <article>
+    <p class="lede-quote">Do not go where the path may lead, go instead where there is no path and leave a trail. <span style="opacity:0.7">— <em>Ralph Waldo Emerson</em></span></p>
+    <p>Three months ago, I landed in Kuala Lumpur, Malaysia, chasing a love that felt like it had stepped out of a fairytale. But as the months unfolded, my relationship unraveled. Through the turbulence and heartache, I discovered the deeper value of community, self-acceptance, and resilience. At the outset, I had no idea where this journey would lead—so let’s start at the beginning. **To respect her privacy, I’ve changed her name to Jane.*</p>
+    <h2>The Fairytale</h2>
+    <p>It began with an unplanned detour to Isla del Sol (“Island of the Sun”), a jewel of Lake Titicaca in Bolivia, steeped in Incan history and mythology. I had been traveling through South America—Chile, Argentina, Uruguay—for six relentless weeks, running on equal parts adrenaline and exhaustion. My plan was simple: a day trip from La Paz to the island, a quick exploration, and back. But somewhere along the five-hour bus ride to Copacabana, I made a small change: I'd stay overnight. The decision set in motion a chain of events I could never have predicted. When our group of twenty or so travelers arrived, we had a couple of hours to kill before the ferry. Over a quiet lunch at a local restaurant, we traded itineraries. It turned out everyone but Jane and I planned to return that evening. She had booked a later ferry, with the same goal—hike to the island’s northern side. A seven-hour trek seemed safer together, so we swapped contact info. I spent the afternoon exploring the Incan ruins and after my group departed, I ventured into the quaint city to find a restaurant to have dinner. Despite the peak travel season, there weren't many visitors staying on the island. While walking through the narrow cobbled roads, I bumped into Jane, and we decided to have dinner together, at the only restaurant that was open. It turned out all of the other people staying on the island had the same idea; fortunately, we found a table next to a window that overlooked Lake Titicaca. While we waited for our 'trucha' (the island's famed rainbow trout), we discussed what brought each of us to South America. Jane, originally from Kuala Lumpur, had completed an exchange program in Colombia and returned to explore Peru, Ecuador, and Colombia to visit her host family. I was impressed that she was brave enough to explore South America on her own. As the evening wore on, an unexpected rain storm rolled in; we shared our experiences travelling/studying/living in various countries around the world. We were so enthralled by our conversation that we hardly noticed the thunder rumbling in the distance and lightning illuminating the night sky. After three hours, the restaurant owner notified us that the restaurant was closing. We stepped outside and were immediately soaked by the torrential freezing rain. Since it was pitch black, I wanted to ensure Jane got to her hotel safely, so we walked as briskly as possible across the slippery cobblestones following the dim lights of our phones. We arrived at the gate of her hotel, I quickly confirmed our meeting time for the next morning (there was no internet on the island), and ran back to my hotel. The next morning, we were fortunate that the clouds had passed which left us with beautiful weather for the hike. Over the next seven hours of hiking, our conversation naturally bounced from topic to topic, as if we had been friends for years. I felt as though our life stories were intertwined on various levels. I am five years older, and I perceived the journey she was on was similar to the path I had found myself at the same age. She impressed me with her bravery, independence, worldliness, and desire to grow and learn. Similar to conversations I have had with other travellers, I believe we shared a common curiosity about the world. When we departed Isla Del Sol on the return ferry to Copacabana, we shared our respective itineraries. Since I had already visited Peru in 2021 and was heading to both Ecuador and Colombia over the next six weeks, we decided to keep in touch to share travel tips and photos of our respective journeys. Although this wasn't the first occasion I've had a unique connection with a fellow traveller and went our separate ways, I was saddened that we were unsure if we'd ever see each other again. Over the next six weeks, we were digital penpals, sharing stories and photos of our adventures. While I was completing my trip through Colombia before flying back to Vancouver, Jane told me that she had a layover in Bogota, before visiting her host family. I was leaving the following morning back to Vancouver, so we agreed to explore Bogota together. We spent the brief twelve hours walking through various districts of the city, cafe hopping, and souvenir shopping. Similar to our hike in Bolivia, time seemed to fly by. I was learning more about the world through her purview, which challenged my own perceptions of the world and this intrigued me. When we said our goodbyes, Jane offered to be my tour guide if I decided to venture through Malaysia. After a two day layover in Vancouver, I hopped on a flight to begin the next leg of my adventure in Asia. I spent the next month puttering around Vietnam via motorcycle, and it was one of the most freeing experiences. Most of my adventures have a rough itinerary that guided the flow of the trip, but I enjoyed the serendipitous nature of this leg of my journey. I intended to visit Singapore, Thailand, Hong Kong, and China, before meeting up with my family in Korea. On a whim, I decided to visit Malaysia enroute to Singapore. Knowing that Jane is a foodie and we enjoy similar travel styles, I figured it would be a great way to explore the country. The timing was perfect, because she had just returned from South America and had a few days before the end of her sabbatical. We ate our way through Kuala Lumpur, Ipoh, and Penang, then continued meeting for dinners and desserts after she resumed work. I was beginning to see more sides of Jane - her nurturing side, her thoughtfulness; it was then I realized I was falling for her. Before departing Kuala Lumpur, I invited Jane to accompany in Bangkok and Hong Kong; unexpectedly she agreed. Although our weekend trips to Bangkok and Hong Kong were very short, we couldn't help but appreciative that somehow, we had already explored five countries together. As we sat in the lounge at the Hong Kong International Airport waiting for our respective flights, we both shared a desire to figure out how we would be able to see each other again. I would be travelling for a few weeks through China and Korea before returning to Vancouver to prepare for an Ultramarathon, and Jane had already used her vacation allotment for the year during her sabbatical. My original plan was to stay in Vancouver until the fall to train for Ironman California held at the end October, before resuming my travels around the world, but I promised that I would make the effort to come see her again.</p>
     <h2>Adjusting</h2>
-    
-    <img src="taking-the-leap/gallery-8.jpg" alt="Taking the Leap — photo 8" class="inline-photo" loading="lazy">
-
-    <p>I wasn't naive about what long distance takes. Misaligned time zones made even regular calls hard, and we both knew the distance itself would eventually need to close. So I arranged to move to Malaysia for three months. Some people thought I was crazy to relocate across the world for someone I barely knew — but the calculation felt simple: worst case, a unique experience; best case, she's the one.</p>
-    
-    <img src="taking-the-leap/gallery-9.png" alt="Taking the Leap — photo 9" class="inline-photo" loading="lazy">
-
-    <p>Being in the same city for the first time in months was a relief, but it also meant building an entirely new life from scratch — something I hadn't had to do in my usual mode of transient solo travel. I leaned on what's always worked for me: sport as a way into community. I picked pickleball back up, joined a swim club, and found a gym to train for upcoming races.</p>
-    
-    <img src="taking-the-leap/gallery-10.jpg" alt="Taking the Leap — photo 10" class="inline-photo" loading="lazy">
-
+    <p>Despite the fairytale start of our relationship, I was not blind to the fact that relationships require a lot of work, especially long distance relationships. We tried our best to connect as often as possible through text and video calls, but it was challenging given the misaligned timezones. We both knew that it would be impossible to develop any semblance of a relationship with the distance between us. To bridge the distance, I made arrangements to move to Malaysia for three months (Canadians can stay in Malaysia for ninety days without a Visa), shortly after my Ultramarathon. When I told my friends and family about my decision, I'm sure some thought I was crazy to move across the world for someone who I barely knew. It's my nature to take calculated risks; I figured... worst case scenario: I have a unique experience and can say I at least gave it my best shot; and best case scenario: Jane is the "one". When I arrived in Kuala Lumpur, Jane and I were elated to see each other. The long distance had taken a toll on both of us, and I hoped that being in the same city would give us an opportunity to learn more about each other, without the stress of the geographic and time gap. I was excited to be in the same city as Jane for more than just a few days at a time, and looked forward to continuing our adventures together. I rented an Airbnb near her home and tried to be available whenever she was free, which meant I could fill the rest of my time exploring KL and developing a new community. I'm quite comfortable travelling solo and finding opportunities to meet people; however, during all of those circumstances, I was a transient. To this day, I'm friends with many of the people I've met during my jaunts around the globe, but now I had to create an entirely new routine for myself. I have always gravitated towards the outdoors or sports as an avenue to meet other like minded people, so I started to fill my calendar with various activities. When I had come to Malaysia in February, I heard Pickleball had grown substantially, so I brought my paddle and started to join local clubs. I also joined a swim club and signed up for a gym to prepare for my upcoming races.</p>
+    <img src="taking-the-leap/gallery-1.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-2.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-3.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-4.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-5.png" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-6.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-7.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-8.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-9.png" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-10.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-11.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-12.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="taking-the-leap/gallery-13.jpg" alt="" class="inline-photo" loading="lazy">
     <h2>Community</h2>
-    
-    <img src="taking-the-leap/gallery-11.jpg" alt="Taking the Leap — photo 11" class="inline-photo" loading="lazy">
-
-    <p>Malaysia's mix of cultures and languages, and the fact that most people speak English, made it an easy place to plug into as an expat. Coffee shops, mamak stalls, hawker centers — a smile turned into a conversation more often than not, and pickleball, swimming, and the gym became the real hubs. My circle ranged wildly in age, background, and belief, and I felt at home in it faster than I expected — partly, I think, because no one there had any preconceived idea of who I was. There was no "friend of a friend" version of me to live up to, and the usual North American undercurrent of <em>what's next</em> got quieter.</p>
-    
-    <img src="taking-the-leap/gallery-12.jpg" alt="Taking the Leap — photo 12" class="inline-photo" loading="lazy">
-
+    <p>I’ve always been drawn to people who enjoy challenging themselves, and I quickly developed a great group of friends through all of my new activities. Malaysia is melting pot of various cultures, languages, and religions, and I believe this creates a relatively open and welcoming environment for expats. It also helped that most Malaysians speak English. As a developing country, I enjoyed the unique charm that came with the organized chaos. Somehow, despite the millions of people in Kuala Lumpur and its surrounding cities, I felt it provided the perfect balance of anonymity and familiarity. Over the years, while living in Vancouver, I have become comfortable in the circles of friends that I've developed and don't branch off from my routines to actively introduce myself to others. Since I didn't know anyone other than Jane, I had to actively put myself in situations where I was meeting new people. When I sat at coffee shops, ate at mamak (Indian Muslim-influenced eatery) stalls or hawker centers, or walked around the street, a simple smile often turned into brief conversations. Many of my friendships were developed through pickleball, swimming and the gym which seemed to be the best places to meet people from all walks of life. My friends ranged in age, religious backgrounds, travel experience, and education levels, and despite the many differences, I felt right at home. I'm still trying to precisely pinpoint the reasons why I felt a sense of ease, but I believe one of the main reasons is that I could truly be myself. It could be the sense of anonymity that I experienced, because no one had any preconceived notion of who I was. I never had to worry that someone already knew me through a friend of a friend or knew me through school, my corporate career or business. Or maybe the reason is that I don't feel the same underlying stress about not moving forward in life or achieving the next level of success fast enough while I'm North America. When I arrived in KL, that inner voice saying "What's next" seemed to become a less pronounced drum beat at the back of my mind, and I started to appreciate just enjoying the present. Being in the moment gave me the opportunity to develop a sense of appreciation of where I was in life and how I defined my sense of purpose and fulfillment.</p>
     <h2>Purpose</h2>
-    
-    <img src="taking-the-leap/gallery-13.jpg" alt="Taking the Leap — photo 13" class="inline-photo" loading="lazy">
-
-    <p>Since selling my company, I'd felt genuinely unmoored — exploring the world, reading, journaling, chasing new ventures that never quite excited me. A friend I met through pickleball, KC, reframed it for me: his whole career has run on a four-years-work, one-year-learn cycle, moving industries each time. Eight cycles in, it hasn't slowed his career — it's broadened it.</p>
-    <p>That reframed how I think about coaching, something I'd always wanted to do but talked myself out of over self-doubt about credibility. Enough people at the gym and at races started asking me for advice that I finally started my ACE Personal Training and Precision Nutrition certifications, treating learning itself as the goal rather than waiting to feel "ready."</p>
+    <p>Since I sold my company, I have felt a bit "lost", because I didn't know where I wanted to dedicate my time and energy. I’ve spent my time exploring the world, reading, journalling, and having conversations trying to discover my purpose and fulfillment. Although I've had various new business ventures and potential partnerships present themselves, I never found myself excited about them. I didn’t want to be influenced by boredom, status or money. On this path towards self exploration, I came to realize that purpose and fulfillment isn’t the destination, it’s about the journey. I was having a conversation with a friend, KC, who I met through pickleball, and he shared his strategy toward self discovery. KC’s career as a consultant intrigued me, because he had one simple goal: learning. Although he studied to be an electrical engineer, throughout his career, he has always used a four + one cycle for work and learning. He signed four year fixed contracts in a single industry and then took an entire year off to learn about a new interest (i.e. new language, ai, accounting, finance, business, etc), before moving to a new industry. Many would suggest that each sabbatical and career change would impact his career advancement, but this actually enhanced his opportunities. Since he started his career, he has gone through eight complete “cycles” of learning and continues exploring his interests. He’s travelled and lived around the world and has acquired both depth and breadth of knowledge. This inspired me to reconsider how I define my purpose and fulfillment. I’ve always wanted to make an impact on the people around me, and I've been drawn to coaching but always experienced a tinge of self doubt. I ask myself whether I have the knowledge, experience, or the credibility to provide guidance to others. While training and racing here in Malaysia, people I met at various events or at the gym would ask for tips to improve their fitness, and although I could answer them from my own experiences, I believe I lacked the technical knowledge to help them. With more and more questions, I decided to take a page out of KC’s book and just focus on learning as my goal. I’ve since started the process of obtaining my ACE Personal Training and Precision Nutrition Coaching Certifications to learn how to best coach others through their health and fitness journeys.</p>
     <h2>Reality</h2>
-    <p>A few weeks in, with a solid routine and circle of friends, the small cracks that had opened during our months apart started to widen. I'd thought moving there was a clear romantic gesture, but she had to make real sacrifices to carve out time for me, and the pressure of assessing a relationship on a short timeline didn't leave room for it to develop naturally.</p>
-    <p>We hadn't talked through our expectations of each other clearly enough going in. When conflict came up, I felt criticized, and my own inadequacy got loud — I hadn't fully worked through some of my own past triggers or built the tools to navigate that kind of friction. We both tried, individually and together, but it didn't hold. I don't regret it. I'm grateful I met her, and grateful for what trying — and not making it — taught me about myself.</p>
-    <h2>What's next</h2>
-    <p>I'll miss the friends, the food, the weekly massages, and the heat (mostly). I leave with real gratitude — without taking the leap, I wouldn't have found a place I could call a second home. I'm heading back to prep for Ironman California and HYROX Vancouver, finish my coaching certifications, and see my family, Olive, and friends. More travel next year — always open to company.</p>
-    <p>---</p></article>
+    <p>After the first few weeks of settling in, I had developed a great circle of friends and started to feel quite content with the routine I’d developed. However, I started to notice that the small fractures that developed during the months Jane and I were apart were widening. I thought moving to Malaysia was a romantic gesture which would show my commitment to our budding relationship. My intention was to have a minimal impact on her daily routine; however, she had to make certain sacrifices to carve out time to spend with me. We felt the pressure to assess our compatibility within the short window while I was in Malaysia, and it didn’t allow us to have the patience to naturally develop a rhythm together. In hindsight, we didn’t spend enough time discussing our expectations of each other. Despite my best efforts to be present and available for our relationship, when arguments arose, I felt criticized and feelings of inadequacy bubbled up. It was challenging for us to see eye to eye, and each subsequent miscommunication led to more distance between us. As we maneuvered through difficult conversations, I realized I hadn't fully addressed all of my own past triggers and hadn't completely developed the tools to navigate conflict resolution. We came to the realization that we had work to do on ourselves to heal past wounds, before we could create a foundation of trust. I know that we both tried our best to work through the challenges we dealt with individually and together, but unfortunately, we weren’t able to make our relationship work. I do not have any regrets. I am grateful to have met Jane; it gave me the opportunity to learn more about myself and what it takes to make a relationship work. If we had never tried to make it work, we would have never known the possibilities.</p>
+    <h2>What's Next...</h2>
+    <p>I missed my family, Olive, and friends while I've been away, and I'm looking forward to catching the last bit of summer in Vancouver. I will certainly miss many aspects of my time in Malaysia: the many friends I have made, the limitless food options, weekly massages, and sunny/hot (sometimes too hot) weather. I leave Malaysia with a sense of gratitude, because without taking the leap for love, I wouldn't have had the opportunity to find a place I could potentially call my second home. I still feel brief periods of sadness that our relationship didn't work out, but I will cherish the memories Jane and I had together. I am excited for the coming months, as I prep for Ironman California and HYROX Vancouver, complete my ACE Personal Training, Precision Nutrition Coaching, and HYROX Coaching Certificates, and seeing Olive, family and friends. I intend on traveling again the new year and am looking forward to my next adventure. Got any tips or want to join? Hit me up! P.S. If you're looking for a newbie Personal Trainer, you know where to find me!</p>
+    <h2>Copyright 2025 ©The Dailyee</h2>
+    <p>[Terms and Policies](https://www.thedailyee.com/privacy-policy) [https://www.facebook.com/thedailyee](https://www.facebook.com/thedailyee "Go to Facebook page")[https://www.instagram.com/the.dailyee](https://www.instagram.com/the.dailyee "Go to Instagram page")[https://www.linkedin.com/](https://www.linkedin.com/ "Go to Linkedin-in page")</p>
+  </article>
 </main>
 
 <footer>

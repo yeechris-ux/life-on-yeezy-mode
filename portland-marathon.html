@@ -96,7 +96,7 @@
     padding-bottom: 40px; border-bottom: 1px solid var(--line);
   }
   article { font-size: 17px; line-height: 1.75; }
-  article p { margin: 0 0 22px; }
+  article p { margin: 0 0 22px; text-align: justify; text-justify: inter-word; hyphens: auto; }
   article h2 {
     font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 44px 0 18px;
   }
@@ -120,22 +120,28 @@
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px;
     margin: 0 0 44px; border: 1px solid var(--line); display: block;
   }
+  .carousel-wrap { position: relative; display: flex; align-items: center; gap: 8px; margin: 0 0 40px; }
+  .carousel-track {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; padding-bottom: 4px;
+  }
+  .carousel-track::-webkit-scrollbar { height: 6px; }
+  .carousel-track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .carousel-track a {
+    flex: 0 0 220px; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); scroll-snap-align: start; display: block;
+  }
+  .carousel-track img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .carousel-btn {
+    flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--surface); color: var(--fg); font-size: 18px; cursor: pointer;
+    display: grid; place-items: center; transition: background 150ms;
+  }
+  .carousel-btn:hover { background: var(--surface2); }
   .gallery-heading {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--accent); margin: 48px 0 18px;
   }
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px;
-    margin: 0 0 40px;
-  }
-  .gallery-grid a {
-    display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .gallery-grid img {
-    width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 200ms ease;
-  }
-  .gallery-grid a:hover img { transform: scale(1.06); }
   .inline-photo {
     width: 100%; border-radius: 14px; margin: 32px 0; display: block;
     border: 1px solid var(--line);
@@ -154,6 +160,7 @@
       <a href="index.html#media">Videos</a>
       <a href="index.html#about">About</a>
       <a href="index.html#newsletter">Newsletter</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -165,71 +172,49 @@
   <h1>Race Recap: Portland Marathon</h1>
   <p class="excerpt">Capping off the 2024 race season.</p>
   <img src="portland-marathon/hero.jpg" alt="Race Recap: Portland Marathon" class="hero-image">
-  <article><p>My goal for the season was a sub-2:45 marathon. My official best was 2:51:20 (Rock 'n' Roll Seattle, 2018), and my unofficial training best was 2:48:20. Portland's rolling course — 286m of elevation gain — is tougher than the BMO course where I'd set my 2:52:51 PB earlier that May. This one was also special: my sister and brother-in-law raced the half, and our mom came out to support all of us.</p>
-    <h2>Nutrition</h2>
-    
-    <img src="portland-marathon/gallery-1.jpg" alt="Race Recap: Portland Marathon — photo 1" class="inline-photo" loading="lazy">
-
-    <p>Despite an eight-hour drive down, I stuck to my usual routine — the same pasta dinners the two nights prior, electrolytes the day before and morning-of, oatmeal with banana and Nutella, coffee two hours out, one caffeinated gel twenty minutes before the gun.</p>
-    
-    <img src="portland-marathon/gallery-2.png" alt="Race Recap: Portland Marathon — photo 2" class="inline-photo" loading="lazy">
-
-    <p>The plan was a gel every 6K plus water and NUUN on course. I assumed I could restock at aid stations, but with the 10K, half, and full all merging on course, stations were jammed with walkers, and I skipped nutrition to save time. By the halfway point I was already feeling dehydration.</p>
-    
-    <img src="portland-marathon/gallery-3.png" alt="Race Recap: Portland Marathon — photo 3" class="inline-photo" loading="lazy">
-
-    <p><strong>Lesson: have a contingency plan. Don't rely purely on course nutrition</strong> — I'll consider carrying a small flask at future races.</p>
-    
-    <img src="portland-marathon/gallery-4.jpg" alt="Race Recap: Portland Marathon — photo 4" class="inline-photo" loading="lazy">
-
-    <h2>Results</h2>
-    
-    <img src="portland-marathon/gallery-5.jpg" alt="Race Recap: Portland Marathon — photo 5" class="inline-photo" loading="lazy">
-
-    <p>I missed my time goal by sixteen seconds officially, though my watch had me at 42.55km — I believe I'd have hit sub-2:45 at the true distance, minus time lost weaving through aid stations and crowds. Either way, I qualified for both the 2026 Boston Marathon and 2025 New York Marathon. Thank you to my mom, the spectators and volunteers, and the Fraser Street Run Club for the training grind.</p>
-    
-    <img src="portland-marathon/gallery-6.jpg" alt="Race Recap: Portland Marathon — photo 6" class="inline-photo" loading="lazy">
-
-    <p><strong>Lesson: believe in the process.</strong> I set an ambitious goal at the start of the season and trusted the training to get me there.</p>
-    
-    <img src="portland-marathon/gallery-7.jpg" alt="Race Recap: Portland Marathon — photo 7" class="inline-photo" loading="lazy">
-
-    <p><strong>Weather</strong> was close to perfect — 9°C at the start climbing to about 15°C, sunny with a slight breeze; leaving my sleeves and base layer at home turned out to be the right call.</p>
-    
-    <img src="portland-marathon/gallery-8.jpg" alt="Race Recap: Portland Marathon — photo 8" class="inline-photo" loading="lazy">
-
+  <article>
+    <ol><li>Volume for the sake of getting volume isn't always the best for training. Focusing on rest and recovery can actually provide more benefits than logging 'junk miles'.</li>
+<li>Have a contingency plan. Don't purely rely on the on-course nutrition. I may consider carrying a small flask with fluids at future races.</li>
+<li>Try to get out of the zone every so often to actually enjoy the race.</li>
+<li>Believe in the process.</li></ol>
+    <p>I'll be sharing the highlights of my final race of the 2024 race season at the Portland Marathon.</p>
+    <img src="portland-marathon/gallery-1.jpg" alt="" class="inline-photo" loading="lazy">
+    <h2>Race Report</h2>
+    <h2>Race Goal</h2>
+    <p>My goal for the season was to achieve a marathon personal best of sub two hour and forty-five minutes. To date my fastest official time was set at the Rock and Roll Seattle Marathon in 2018 in a time of 2:51:20 and my fastest unofficial time (set in training) was 2:48:20. The Portland Marathon isn't considered an easy course given its rolling terrain. With a total elevation gain of 286 meters, it was more challenging than the BMO Marathon (Elevation gain of 271 meters) where I set my course personal best of 2:52:51 earlier in May. Running the Portland Marathon was a unique experience, because my sister and brother in law decided to race the half marathon distance. It was our first (but won't be the last) race together and it was made more special, because our mother came to support us as well.</p>
+    <h2>Nutrition Plan</h2>
+    <p>Despite Portland being more than an eight hour drive away (with stops for Olive), I was able to stick to pretty much the same nutrition plan that I use for all of my races. Over the years, I've consistently made the same pasta recipe and typically consume it for the two dinners prior to race morning. I also drank electrolytes/salt the day before the race and race morning. I ate a bowl of oatmeal with a banana and Nutella. Topped it all off with a cup of coffee about two hours before the race. Twenty minutes before the race, I consumed one caffeinated GU gel. My goal was to consume a gel every six kilometers and drink the on-course water and NUUN electrolytes. I carried six GU gels and thought I would be able to pick up any additional gels on course. I made the mistake of thinking that I would be able to easily access the aid-stations. The 10km and marathon participants started at the same time, and after the first 14kms we rejoined the half marathon participants for the majority of the rest of the race. Many of the aid stations were backed up with racers walking through each aid station collecting cups of water/electrolytes, so I sacrificed the much needed nutrition to save time. This was a mistake, because by the time, I had reached the half marathon distance, I was already feeling the effects of dehydration. For the rest of the race, I tried my best to weave through the crowds to collect what I needed, but I knew that I was losing valuable time. <strong>Lesson:</strong> Have a contingency plan. Don't purely rely on the on-course nutrition. I may consider carrying a small flask with fluids at future races.</p>
+    <h2>Final Results</h2>
+    <p>After checking the official results, I had missed my time goal by sixteen seconds; however, my watch indicated that I had run 42.55kms. Although it wasn't the official time, I believe I would have achieved my goal of sub two hours and forty-five minutes at the official distance. I also feel I lost a couple of minutes navigating the aid stations and dodging other racers along the course. Overall, I'm happy with my performance; I stuck to my pacing goal and also qualified for the 2026 Boston Marathon and 2025 New York Marathon. Thank you to my mom for supporting me on this journey and all of the spectators/volunteers and congratulations to all participants. Special thanks to all my training partners and the Fraser Street Running Club for the tough workouts.</p>
+    <p><strong>Lesson:</strong> Believe in the process. I set an ambitious goal at the beginning of the season and trusted the physical and mental training would help me cross the finish line in my goal time.</p>
+    <h2>Weather</h2>
+    <p>The weather was absolutely perfect on race morning. The race started at 7:00am. I was initially concerned that the temperature would be cold, because it was frigid the morning before during the marathon shake out run. However, it was nine degrees when the race started and slowly increased to about fifteen degrees by the end of the race. It turned out to be sunny and with a slight breeze. I decided to leave my running sleeves and base layer at home (ended up being a good decision).</p>
+    <h2>What's Next...</h2>
+    <p>The 2024 race season has come to a close, but I'm excited for next season and already looking into filling my race calendar. I've already committed to the 100km Canyons Ultramarathon in April, Victoria Half Ironman in May, Ironman California in October, and California International Marathon in December. In the meantime, I'll be taking a break from training and spending the next five months travelling through South America and South East Asia. Looking forward to sharing what I discover about the world and myself along the journey! Thanks for reading!</p>
     <h2>Training</h2>
-    
-    <img src="portland-marathon/gallery-9.jpg" alt="Race Recap: Portland Marathon — photo 9" class="inline-photo" loading="lazy">
-
-    <p>This build came right off Ironman Penticton, where I'd crashed and picked up a niggling knee pain, road rash, and hamstring tightness. After a week to recover, I had about three weeks to layer in speed and hill work plus a taper — tighter than usual, so I trained at higher intensity than a typical marathon build: shorter hill runs during the week, longer (30km+) speed sessions on tired legs on weekends. Weekly volume was actually lower than my BMO build (77/83/85km across three weeks), but the specificity let my body absorb the work between sessions.</p>
-    
-    <img src="portland-marathon/gallery-10.jpg" alt="Race Recap: Portland Marathon — photo 10" class="inline-photo" loading="lazy">
-
-    <p><strong>Lesson: volume for its own sake isn't always best.</strong> Rest and recovery can outperform logging junk miles.</p>
-    
-    <img src="portland-marathon/gallery-11.jpg" alt="Race Recap: Portland Marathon — photo 11" class="inline-photo" loading="lazy">
-
-    <p>I cut taper volume to 56km and 24km across the final two weeks, kept the intensity, and leaned on stretching and a visit to my physio to loosen up the hamstring.</p>
-    
-    <img src="portland-marathon/gallery-12.jpg" alt="Race Recap: Portland Marathon — photo 12" class="inline-photo" loading="lazy">
-
+    <p>The lead up to the marathon came off my Ironman Penticton completion at the end of August, so I had already developed my base fitness and needed to focus on building speed into my training plan. After crashing at Ironman Penticton, I had developed a niggling pain behind my right knee, had large patches of road rash on my left arm/shoulder and felt a persistent tightness in my left hamstring. I gave myself a week to recover before beginning my race build. After learning how critical it is to train as close as possible to race conditions, this left me with roughly three weeks to incorporate speed and hill workouts into my training and a week of taper. In order to build the muscular endurance for the hills and the top end speed to meet my target pace, I trained at a higher intensity than I typically would for a marathon build. During the week, I completed shorter runs on hills so my quads would become accustomed to the persistent pounding on the pavement of the ascents and descents. On the weekends, I completed my speed workouts at longer (30+km) distances to simulate running on tired legs. The four workouts below were the key workouts I completed to assess my fitness during this shorter build. My weekly running volume was less than the build up to the BMO Marathon (Week 1 - 77km, Week 2 - 83km, Week 3 - 85km). I believe that the specificity of my training during this build gave me the opportunity to rest between training sessions. <strong>Lesson:</strong> Volume for the sake of getting volume isn't always the best for training. Focusing on rest and recovery can actually provide more benefits than logging 'junk miles'.</p>
+    <h2>Taper</h2>
+    <p>Although the volume during this training block was lower than my BMO build, I felt that the tightness in my left hamstring would require additional rest leading up to the race. I decreased the volume during the two weeks of taper to 56km and 24km, respectively. My goal was to keep up the intensity and specificity (speed/hill work) during this period, but decrease the volume so my body could absorb the physiological gains from the prior weeks. I also focused on stretching for the last week of taper. The week of the race I visited Thomas at Rebounce Physio to see if he could loosen up my hamstring.</p>
+    <img src="portland-marathon/gallery-2.png" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-3.png" alt="" class="inline-photo" loading="lazy">
     <h2>Race</h2>
-    
-    <img src="portland-marathon/gallery-13.jpg" alt="Race Recap: Portland Marathon — photo 13" class="inline-photo" loading="lazy">
-
-    <p>First race outside Canada in over five years. Since the 10K and marathon started together, the pace was fast from the gun despite immediate uphills. I stuck to my 3:52–3:55/km target while others sped past, ran mostly alone for six kilometers, then linked up with Jacob and later Mikah for the next stretch through the city — heads-down enough that I barely noticed the neighborhoods we passed through.</p>
-    
-    <img src="portland-marathon/gallery-14.jpg" alt="Race Recap: Portland Marathon — photo 14" class="inline-photo" loading="lazy">
-
-    <h2>Lesson: don't get so locked into "racing" that you forget to enjoy the atmosphere.</h2>
-    
-    <img src="portland-marathon/gallery-15.jpg" alt="Race Recap: Portland Marathon — photo 15" class="inline-photo" loading="lazy">
-
-    <p>Around the half, Jacob pulled ahead and a pack of six marathoners caught up to me; I tucked in and drafted them through neighborhoods, a golf course, and past Reed College, with spectators cheering from porches and balconies. I'd built a small buffer by 35K, then felt my legs start cramping and eased off slightly through the final climbs and descents back to Naito Parkway. The last kilometer, packed with spectators, funneled us to the finish. I found my sister, brother-in-law, and mom, who told me I'd placed top five in my age group — even though the finish clocks were showing the wrong time.</p>
-    <h2>What's next</h2>
-    <p>The 2024 season is closed. I've already got the Canyons 100K Ultramarathon in April, Victoria Half Ironman in May, Ironman California in October, and CIM in December on the calendar. In the meantime: five months traveling through South America and Southeast Asia.</p>
-    <p>---</p></article>
+    <p>This was my first race in over five years outside of Canada, and I was excited to race on a completely new course. Since this was my last race of the season, I felt this was a great way to test my fitness. I had mentally prepared to challenge myself and knew that my biggest challenge was going to be my tight hamstring. Since the 10km and marathon racers started together, the race began super fast despite the immediate uphills leaving the start line. It was difficult to determine which racers were running the full marathon, so I stuck to my goal pace of 3:52-3:55min/km while the other runners sped past me. For the first six kilometers, I was running pretty much alone until I started running with Jacob (guy in the yellow kit below) and we chatted for the next six kilometers, before we were joined by a younger runner named Mikah. The three of us kept pace together as the race serpentined through the city. I had been so focused on keeping my pace that I didn't spend much time observing the various districts we ran through. <strong>Lesson:</strong> Sometimes, I get too caught up in 'racing' and forget to enjoy the atmosphere and environment. Try to get out of the zone every so often to actually enjoy the race. At about the half marathon mark, Jacob picked up his pace and left me behind while a group of six other marathoners caught up to me, and I joined their pack for the next fifteen kilometers. I was the shortest runner in the pack, so I stuck on their heels and drafted them as we circumvented various neighbourhoods, a golf course, and Reed College. It was a fun experience running down the tree-lined streets with spectators sitting on the front porches and on their balconies cheering on the racers. I had built a small time buffer leading up to kilometer thirty-five, but I began to feel my legs cramping, so I eased up on the pace slightly. The final kilometers of the race were challenging, because there were some steep inclines and declines before arriving back to the home stretch on Naito Parkway. The final kilometer was a memorable experience, because it was filled with tons of spectators which funnelled competitors to the finishing line. After crossing the finish line, I searched for my sister, brother in law and mom, and they told me I had placed top five in my age group. I was still unsure of my completion time, because the finish time clocks were showing incorrect times.</p>
+    <img src="portland-marathon/gallery-4.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-5.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-6.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-7.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-8.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-9.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-10.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/hero.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-11.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-12.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-13.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-14.jpg" alt="" class="inline-photo" loading="lazy">
+    <img src="portland-marathon/gallery-15.jpg" alt="" class="inline-photo" loading="lazy">
+    <h2>Copyright 2025 ©The Dailyee</h2>
+    <p>[Terms and Policies](https://www.thedailyee.com/privacy-policy) [https://www.facebook.com/thedailyee](https://www.facebook.com/thedailyee "Go to Facebook page")[https://www.instagram.com/the.dailyee](https://www.instagram.com/the.dailyee "Go to Instagram page")[https://www.linkedin.com/](https://www.linkedin.com/ "Go to Linkedin-in page")</p>
+  </article>
 </main>
 
 <footer>

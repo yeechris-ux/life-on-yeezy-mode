@@ -96,7 +96,7 @@
     padding-bottom: 40px; border-bottom: 1px solid var(--line);
   }
   article { font-size: 17px; line-height: 1.75; }
-  article p { margin: 0 0 22px; }
+  article p { margin: 0 0 22px; text-align: justify; text-justify: inter-word; hyphens: auto; }
   article h2 {
     font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 44px 0 18px;
   }
@@ -120,22 +120,28 @@
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px;
     margin: 0 0 44px; border: 1px solid var(--line); display: block;
   }
+  .carousel-wrap { position: relative; display: flex; align-items: center; gap: 8px; margin: 0 0 40px; }
+  .carousel-track {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; padding-bottom: 4px;
+  }
+  .carousel-track::-webkit-scrollbar { height: 6px; }
+  .carousel-track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .carousel-track a {
+    flex: 0 0 220px; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); scroll-snap-align: start; display: block;
+  }
+  .carousel-track img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .carousel-btn {
+    flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--surface); color: var(--fg); font-size: 18px; cursor: pointer;
+    display: grid; place-items: center; transition: background 150ms;
+  }
+  .carousel-btn:hover { background: var(--surface2); }
   .gallery-heading {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--accent); margin: 48px 0 18px;
   }
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px;
-    margin: 0 0 40px;
-  }
-  .gallery-grid a {
-    display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .gallery-grid img {
-    width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 200ms ease;
-  }
-  .gallery-grid a:hover img { transform: scale(1.06); }
   .inline-photo {
     width: 100%; border-radius: 14px; margin: 32px 0; display: block;
     border: 1px solid var(--line);
@@ -154,6 +160,7 @@
       <a href="index.html#media">Videos</a>
       <a href="index.html#about">About</a>
       <a href="index.html#newsletter">Newsletter</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -165,36 +172,29 @@
   <h1>Redefining Success</h1>
   <p class="excerpt">I missed my personal best by one minute — and somehow walked away more satisfied than when I set it.</p>
   <img src="redefining-success/hero.jpg" alt="Redefining Success" class="hero-image">
-  <article><p>Just over a week ago I finished the Eugene Marathon, my ninth full marathon, in 2:46:10 — a minute off my personal best of 2:45:16 from the 2024 Portland Marathon. Looking back at the arc of these races, progress was never a straight line:</p>
-    <ul>
-    <li>2009 BMO Marathon — 3:20:12</li>
-    <li>2010 BMO Marathon — 3:18:53</li>
-    <li>2014 BMO Marathon — 2:57:26</li>
-    <li>2016 BMO Marathon — 3:02:36</li>
-    <li>2017 BMO Marathon — 2:52:53</li>
-    <li>2018 Seattle Rock 'n' Roll Marathon — 2:51:20</li>
-    <li>2024 BMO Marathon — 2:52:50</li>
-    <li>2024 Portland Marathon — 2:45:16</li>
-    <li>2026 Eugene Marathon — 2:46:10</li>
-    </ul>
-    
-    <img src="redefining-success/gallery-1.jpg" alt="Redefining Success — photo 1" class="inline-photo" loading="lazy">
-
-    <p>We train for months, sometimes years, hoping nutrition, pacing, mindset, and recovery all line up on race day. Sometimes they don't. As I've gotten more seasoned, I've stopped measuring success purely by the clock. What matters more is whether I gave everything I had throughout the process — it's a game of percentages, not perfection.</p>
-    <h2>The race</h2>
-    <p>I talked my sister Tiffany, her husband Bryan, and my training partner Patrick into racing Eugene with me. Patrick and I run similar paces and saw it as a shot at pushing each other toward a Berlin qualifier; meanwhile I was helping Tiffany chase a PB under her 3:48:13, and Bryan was aiming to beat 4:24.</p>
-    <p>My plan was to use Eugene as a build toward Ironman Nice two months later — in hindsight, stacking two big goals that close together wasn't the smartest call. Training was solid until four weeks out, when a hip flexor injury showed up during a long run and got worse with every session. Mileage dropped, confidence dropped with it. A week before the race I genuinely wasn't sure I should start.</p>
-    <p>On the drive down, Patrick and I talked strategy, but I had doubts — his training had been building while mine had been unraveling. Then we met up with Tiffany and Bryan, who were just relaxed and happy to be there, and something shifted. None of us are paid to do this. That's the whole point.</p>
-    <p>We went out faster than planned. Patrick pulled ahead around 5K; I let him go but kept him in sight, slowly closing the gap over the next 25K until I caught him fighting a calf cramp. I told him to hang on, we'd finish together. With 7K left, my own quads started cramping and my pace slipped. We did the math — it was going to be close. In the final kilometer we gave everything we had and still missed it by about a minute.</p>
-    <p>I was disappointed but also proud — we left everything out there. Back in the stadium, watching finishers come in, I was genuinely thrilled for Tiffany and Bryan, who smashed their PBs at 3:41:16 and 3:53:57.</p>
-    <h2>What I'm taking from it</h2>
-    <p>As a recovering "anxious overachiever," I used to draw a hard line between success and failure — anything short of a Berlin qualifier felt like coming up short. That mindset pushed me to show up, but it also quietly eroded my motivation, because if the outcome wasn't guaranteed, the risk of falling short felt too high.</p>
-    <p>On the drive home, Patrick asked if I was disappointed I hadn't PB'd or qualified. I'd narrowly missed the Berlin cutoff of 2:45 back in 2024, so it was a fair question. My first reaction was frustration. Then I caught myself: isn't uncertainty the whole point? If success were guaranteed, it wouldn't mean much. If failure were guaranteed, there'd be no reason to try. The value lives in the uncertain space between.</p>
-    <p>Everyone on that start line is carrying something — work, stress, fatigue. There's no such thing as perfect conditions. I didn't have a perfect race, but I executed the race I had in me that day, and that has to count for something. Success doesn't require perfect execution — it's about continuing to show up, to the start line, to the process, to the discomfort, in pursuit of getting better.</p>
-    <h2>What's next</h2>
-    <p>Bryan and I head to France in under two months for Ironman Nice — Mediterranean swim, 2,500m of climbing through the Alpes-Maritimes, and a run along the Promenade des Anglais. After that I'll shift back to the marathon for another shot at Berlin at the Toronto Marathon. Shortly after, I'm leaving to travel the world for a year.</p>
-    <p>Progress doesn't come from perfect days — it comes from refusing to stop. One step at a time is enough.</p>
-    <p>---</p></article>
+  <article>
+    <p>I missed my personal best by one minute—and somehow walked away more satisfied than when I set it. Just over a week ago, I completed the Eugene Marathon, my ninth full marathon in a time of 2:46:10. I missed my previous personal best (2:45:16, set at the 2024 Portland Marathon) by roughly a minute. Based on my previous marathon performances progress isn't linear. That's the beauty of doing hard things. Here’s how that progression has looked:</p>
+    <ul><li>2009 BMO Marathon - 3:20:12</li>
+<li>2010 BMO Marathon - 3:18:53</li>
+<li>2014 BMO Marathon - 2:57:26</li>
+<li>2016 BMO Marathon - 3:02:36</li>
+<li>2017 BMO Marathon - 2:52:53</li>
+<li>2018 Seattle Rock N' Roll Marathon - 2:51:20</li>
+<li>2024 BMO Marathon - 2:52:50</li>
+<li>2024 Portland Marathon - 2:45:16</li>
+<li>2026 Eugene Marathon - 2:46:10</li></ul>
+    <p>We train for months—sometimes years—hoping all the pieces (nutrition, pacing, mindset, recovery) fall into place on race day. But sometimes, they don’t. As I’ve become a more seasoned athlete, I’ve changed how I measure success. Race day isn’t the only thing that matters anymore. What matters is whether I can honestly say I gave everything I had throughout the process. It’s a game of percentages—not perfection. Not every race will be a personal best.</p>
+    <h2>The Eugene Marathon</h2>
+    <p>I'm lucky to have friends and family who indulge my pursuit of hard things. I invited my sister, brother-in-law, and training partner to race in Eugene, and they agreed without much hesitation. Tiffany and Bryan previously raced with me in Portland and enjoyed the experience of travelling for a race. I met Patrick at The Fraser Street Run Club a few years ago and ever since, we've trained on and off for years but haven't really had the opportunity to race side by side. Patrick and I run at similar paces, and we saw this as a shot at pushing each other toward a Berlin qualifier. At the same time, I was helping Tiffany improve on her 3:48:13 marathon, while Bryan was aiming to beat his 4:24 PB. This race meant something to us all. My plan was to use Eugene as a build toward Ironman Nice two months later. In hindsight, stacking two big goals that close together wasn't the best call. Training was going well - until four weeks out, when I developed a nagging hip flexor injury during a long run. The pain persisted and worsened after each session. It started to take a toll mentally. Mileage dropped. Confidence dropped with it. It felt like every step forward in fitness came with a step back in health. A week before the race, I wasn't sure I should start. On the drive down, Patrick and I talked strategy - but I had doubts. His training had been building while mine had been unraveling. By the time we met Tiffany and Bryan, though, something shifted. They were relaxed. Excited. Just happy to be there. None of us are paid to do this - this was a good reminder. This is a privilege-to have the time, health and resources to chase something like this. A PB or qualification is just one part of the experience. I’m not sure if it was adrenaline, caffeine, or a mindset shift—but when the race stated, the pain disppeared. Patrick and I planned to start the race together conservatively. We didn't. We flew through the first few kilometers. He pulled ahead after 5K, and I let him go-but kept him in sight. Over the next 25K, I slowly worked my way back. When I caught him, his calf was cramping. I told him to hang on and we could finish together. With 7K to go, the lack of training caught up to me. My quads started to cramp and my pace started to slip. I did the math. It was going to be close. In the final kilometer, we gave everything we had-but we knew we'd missed it. By... a minute. I was disappointed-but also proud. We left everything out there. Back in the stadium, we watched finishers come in which was so inspiring. I was so proud of Tiffany and Bryan for smashing their PBs with 3:41:16 and 3:53:57, respectively.</p>
+    <img src="redefining-success/hero.jpg" alt="" class="inline-photo" loading="lazy">
+    <h2>Rethinking what achievement and success means to me</h2>
+    <p>As someone who is a recovering 'anxious overachiever', I have often fallen into the trap of drawing a hard line between success and failure. For a long time, anything short of qualifying for Berlin felt like a failure. But defining success within such a narrow band only reinforced a constant fear of falling short. I used to believe that anything less than perfection wasn't enough. That mindset is a double-edged sword. On one hand, it pushed me to show up and do the work. On the other, it quietly eroded my motivation to pursue ambitious goals-because if the outcome wasn't guaranteed, the risk of failure felt too high. On the drive back from Eugene, Patrick asked me if I was disappointed that I didn't PB or qualify for Berlin. I had narrowly missed the qualifying time of 2:45 in 2024, so it was a fair question. Initially, I felt some frustration. There were hiccups, and I knew the goal was within reach-but far from guaranteed. Then I caught myself thinking: isn't this the whole point? If success were certain, it wouldn't mean as much. But if failure was guaranteed, there'd be no reason to try. The value is in that uncertain space between. So, I told him the truth: this is what I love about being an athlete. Everyone that toes the start line is carrying something-work, stress, fatigue. There's no such thing as perfect conditions. I didn't have a perfect race, but I executed the race I had in me that day. And that has to count for something. I'm learning that success doesn't require perfect execution. It's about continuing to show up-to the start line, to the process, to the discomfort-in pusuit of getting better. There were moments before the race, and especially in the latter kilometers, where I wanted to quit. But I didn't. And that matters. It's a privilege to train. It's a privilege to race. It's a privilege to choose my hard. And it's something I don't take for granted.</p>
+    <h2>What's Next...</h2>
+    <p>Bryan and I will be heading to France in less than two months to compete in Ironman Nice. The course is widely regarded as one of the most beautiful yet challenging courses in the world, which features a Mediterranean swim, a 2,500m elevation bike ride through the mountainous Alpes-Maritimes, and run along the iconic Promenade des Anglais. After that, I'll shift focus back to the marathon and take another shot at a Berlin qualifier at the Toronto Marathon. Shortly after, I'll be leaving to travel the world for a year. More adventures and racing to come! P.S. - Progress doesn't come from perfect days-it comes from refusing to stop. Keep moving forward. One step at a time is enough.</p>
+    <img src="redefining-success/gallery-1.jpg" alt="" class="inline-photo" loading="lazy">
+    <h2>Copyright 2025 ©The Dailyee</h2>
+    <p>[Terms and Policies](https://www.thedailyee.com/privacy-policy) [https://www.facebook.com/thedailyee](https://www.facebook.com/thedailyee "Go to Facebook page")[https://www.instagram.com/the.dailyee](https://www.instagram.com/the.dailyee "Go to Instagram page")[https://www.linkedin.com/](https://www.linkedin.com/ "Go to Linkedin-in page")</p>
+  </article>
 </main>
 
 <footer>

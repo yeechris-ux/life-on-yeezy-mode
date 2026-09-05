@@ -96,7 +96,7 @@
     padding-bottom: 40px; border-bottom: 1px solid var(--line);
   }
   article { font-size: 17px; line-height: 1.75; }
-  article p { margin: 0 0 22px; }
+  article p { margin: 0 0 22px; text-align: justify; text-justify: inter-word; hyphens: auto; }
   article h2 {
     font-size: 22px; font-weight: 600; letter-spacing: -0.01em; margin: 44px 0 18px;
   }
@@ -120,22 +120,28 @@
     width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 16px;
     margin: 0 0 44px; border: 1px solid var(--line); display: block;
   }
+  .carousel-wrap { position: relative; display: flex; align-items: center; gap: 8px; margin: 0 0 40px; }
+  .carousel-track {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; padding-bottom: 4px;
+  }
+  .carousel-track::-webkit-scrollbar { height: 6px; }
+  .carousel-track::-webkit-scrollbar-thumb { background: var(--line); border-radius: 3px; }
+  .carousel-track a {
+    flex: 0 0 220px; aspect-ratio: 1 / 1; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); scroll-snap-align: start; display: block;
+  }
+  .carousel-track img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .carousel-btn {
+    flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line);
+    background: var(--surface); color: var(--fg); font-size: 18px; cursor: pointer;
+    display: grid; place-items: center; transition: background 150ms;
+  }
+  .carousel-btn:hover { background: var(--surface2); }
   .gallery-heading {
     font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em;
     text-transform: uppercase; color: var(--accent); margin: 48px 0 18px;
   }
-  .gallery-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px;
-    margin: 0 0 40px;
-  }
-  .gallery-grid a {
-    display: block; aspect-ratio: 1 / 1; border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  .gallery-grid img {
-    width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 200ms ease;
-  }
-  .gallery-grid a:hover img { transform: scale(1.06); }
   .inline-photo {
     width: 100%; border-radius: 14px; margin: 32px 0; display: block;
     border: 1px solid var(--line);
@@ -154,6 +160,7 @@
       <a href="index.html#media">Videos</a>
       <a href="index.html#about">About</a>
       <a href="index.html#newsletter">Newsletter</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -165,40 +172,48 @@
   <h1>Race Recap: Vancouver Half Marathon</h1>
   <p class="excerpt">Testing my speed at the half marathon distance, five years after my first one.</p>
   <img src="vancouver-half-marathon/hero.webp" alt="Race Recap: Vancouver Half Marathon" class="hero-image">
-  <article><p>I hadn't trained specifically for the half — I'd just run the BMO Marathon in early May and was ramping toward Ironman Penticton — but I'd kept up Tuesday speed sessions with the Fraser Street Run Club. Goal: beat my personal best of 1:18:32, with a stretch target of breaking 1:17, though that felt unlikely without speed-specific training.</p>
-    <h2>Half marathon results to date</h2>
-    
-    <img src="vancouver-half-marathon/gallery-1.png" alt="Race Recap: Vancouver Half Marathon — photo 1" class="inline-photo" loading="lazy">
-
-    <ul>
-    <li>Scotiabank Half Marathon 2019 — 1:18:32, 30/1,713 OA</li>
-    <li>Vancouver Half Marathon 2024 — 1:17:48, 23/3,799 OA</li>
-    </ul>
+  <article>
+    <ol><li>Allow my body to recover with a proper taper. Rest and recovery are just as important as intensive/structured training. For the marathon, I tapered for roughly ten to eleven days, so I should have given myself at least a four to five day taper into the half marathon.</li>
+<li>Carry at least one more extra gel than anticipated, because I shouldn't rely on whether the gels on course are available or what I need.</li>
+<li>Focus on keeping a cadence of 190+.</li>
+<li>Believe in process and stick to my own game plan.</li></ol>
+    <p>I am trying to get into the habit of assessing each of my races to give me an opportunity to evaluate the areas I can continue developing in and the areas where I can double down on. In this post, I'll be sharing the highlights of my most recent race performance at the Vancouver Half Marathon (June 23rd).</p>
+    <p><strong>Half Marathon Performances to Date:</strong></p>
+    <ul><li>Scotiabank Half Marathon 2019 - Time - 1:18:32, Place OA - 30/1713, Place in Age Group (30-34) - 5/263</li>
+<li>Vancouver Half Marathon 2024 - 1:17:48, Place OA - 23/3799, Place in Age Group (35-49) - 6/371</li></ul>
+    <p>My first half marathon race was the Scotiabank Half Marathon in 2019, so this race was a great way to test my speed at the half marathon distance five years later.</p>
+    <img src="vancouver-half-marathon/hero.webp" alt="" class="inline-photo" loading="lazy">
+    <h2>Race Report</h2>
+    <h2>Race Goal</h2>
+    <p>I have not been training specifically for the half marathon distance, because I ran the BMO Marathon in early May and am ramping up training for Ironman Penticton. I have been primarily focusing on longer endurance runs, but I have attended Fraser Street Run Club's weekly Tuesday runs to work on maintaining my speed at the shorter distances. My primary goal was to try and beat my personal best with a sub one hour and eighteen minute time. As a stretch goal, I would have liked to break the one hour seventeen minute barrier, but it was unlikely given I hadn't trained at that speed.</p>
     <h2>Pacing</h2>
-    <p>My legs were heavy from the start — a ride to the peak of Seymour plus a hard half-marathon session three days before hadn't fully cleared. In hindsight I should've done that workout four or five days out and given myself a real taper.</p>
-    
-    <img src="vancouver-half-marathon/gallery-2.png" alt="Race Recap: Vancouver Half Marathon — photo 2" class="inline-photo" loading="lazy">
-
-    <p><strong>Lesson: rest and recovery matter as much as structured training.</strong> I'd tapered ten to eleven days for the marathon; the half deserved at least four or five.</p>
-    <p>The course's rolling terrain made pacing tricky — five downhill kilometers out, then an uphill retrace back toward UBC. I started conservatively to save my legs for the climb, cresting the hill essentially alone, just under my 3:41/km target through 10K. I took a gel at the 12K aid station to save my last one for 16K, and focused on keeping cadence above 190 for the first time in a race — noticeably more efficient than my usual mid-180s.</p>
-    <h2>Lesson: carry one more gel than you think you'll need<strong>, and don't rely on course availability. </strong>Lock in a 190+ cadence.</h2>
-    
-    <img src="vancouver-half-marathon/gallery-3.png" alt="Race Recap: Vancouver Half Marathon — photo 3" class="inline-photo" loading="lazy">
-
-    <p><strong>Stats:</strong> average cadence 192, average HR 160, ~1,184 calories, ~1,296ml estimated sweat loss.</p>
-    <h2>Nutrition and weather</h2>
-    <p>Same carb-loading routine as always — homemade pasta and turkey sauce for two dinners prior, concentrated Gatorade with pink Himalayan salt the day before given the forecast cloud cover. Oatmeal with banana, blueberries, and maple syrup two hours out, one caffeinated gel forty-five minutes before the start. Weather was ideal — 12°C and dry at the gun, warming to about 15°C by the finish.</p>
-    
-    <img src="vancouver-half-marathon/gallery-4.png" alt="Race Recap: Vancouver Half Marathon — photo 4" class="inline-photo" loading="lazy">
-
-    <h2>Result</h2>
-    <p>I stuck to my plan even as other runners pulled away early, and I'm building real confidence that my pacing and nutrition are dialed in. I should've given the prior hard session more recovery time, but I'm glad I tested where I could push and where I needed to hold back — and it's genuinely satisfying to feel like I'm getting faster with age.</p>
-    <h2>Lesson: believe in the process and stick to your own plan.</h2>
-    
-    <img src="vancouver-half-marathon/gallery-5.png" alt="Race Recap: Vancouver Half Marathon — photo 5" class="inline-photo" loading="lazy">
-
-    <p><strong>What's next:</strong> seven weeks into a new medication for my Ankylosing Spondylitis and it's still astonishing to live pain-free. Ironman Penticton (August, goal sub-10:45) and the Portland Marathon (October, goal sub-2:40) are next up.</p>
-    <p>---</p></article>
+    <p>My legs felt heavy and fatigued for the entire race, because I had completed a bike ride to the peak of Seymour and then completed a hard half marathon training session three days prior to the race. I don't believe I had fully recovered from the brick workout. In hindsight, I should have completed that workout four to five days prior to the race and given myself time to taper into the race.</p>
+    <p><strong>Lesson:</strong> <em>Allow my body to recover with a proper taper. Rest and recovery are just as important as intensive/structured training.</em> <em>For the marathon, I tapered for roughly ten to eleven days, so I should have given myself at least a four to five day taper into the half marathon.</em></p>
+    <p>This was a very challenging course to strategize for because of the rolling terrain. The first five kilometers were downhill and then we retraced our steps with an uphill trek back to the west side of UBC. I had started the race with the front back, but then decided to hold back to conserve my legs for the uphill. My goal was to find a group to work with, but many of the runners around me had sprinted the downhill and slowed significantly on the uphill. By the time I had crested the hill around UBC, I was running pretty much alone. I was just under my target pace of 3:41/km for the first ten kilometers, and knew that I should be able to hold the pace as long as I kept my splits in check for the remainder of the race. I was losing time on the uphill portions, so I took one GUU gel from an aid station at kilometer twelve. This allowed me to save my last gel until kilometer sixteen. For the remainder of the race, I focused on keeping my cadence high which ensured I didn't burn out my quads and hamstrings. This was the first time I've run a race with an average of 190+ cadence and it was significantly more efficient than running in the mid 180s.</p>
+    <p><strong>Lesson:</strong> <em>Carry at least one more extra gel than anticipated, because I shouldn't rely on whether the gels on course are available or what I need.</em></p>
+    <ul><li>Focus on keeping a cadence of 190+.</li></ul>
+    <h2>Stats</h2>
+    <p>Average Cadence - 192, Average HR - 160, Calories burned - 1,184, Estimated sweat loss - 1,296ml</p>
+    <h2>Nutrition Plan</h2>
+    <p>Two nights before the race, I began carbo loading. I made the usual pasta and spaghetti sauce with turkey meat and tons of veggies and ate it for both dinners prior to the race. The race started at 7:30am and the weather was expected to be cloudy, so I didn't feel there was a need to supplement my sodium intake with Precision Hydration. I drank a couple glasses of concentrated Gatorade Powder with some added Pink Himalayan Salt. I finished dinner at 5:00pm and went to bed by 10:00pm. On race day, I ate a large bowl of oatmeal with a banana, blueberries and Maple Syrup with a coffee two hours to the race time. I pre-mixed about 250ml of Gatorade which I sipped the one hour before the race. I took one caffeinated gel forty-five minutes prior to the race, and during the race I planned to take one caffeinated GUU gel every seven kilometers and water on course.</p>
+    <h2>Weather</h2>
+    <p>The weather was perfect. It was a dry twelve degrees Celsius at the start of the race and started to warm up to about fifteen by the time the race was over.</p>
+    <h2>Final Results</h2>
+    <p>This was a challenging race, but I felt I stuck to my game plan and didn't allow myself to change my strategy when I saw other runners pulling away from me. I feel that my running form continues to improve, and I'm developing the confidence to know that my race nutrition and pacing are on point. I should have given myself a longer recovery period after my last hard workout, but I am glad I challenged my body to know where I can push myself and where I need to hold back. I am also very happy that I feel I am getting faster and more efficient as I get older. P.S. Thank you to all of the volunteers, spectators, and friends that cheered us on and congratulations to all runners!</p>
+    <p><strong>Lesson:</strong> Believe in process and stick to my own game plan.</p>
+    <h2>What's Next...</h2>
+    <p>It's been seven weeks since I've been taking my new medication for my AS and it continues to astonish me that I can live a normal/pain-free life. As my training continues to ramp up (in both intensity and duration), I'm looking forward to seeing how my body will perform at my A-races.</p>
+    <ul><li>Ironman Penticton - August 25, 2024 - Goal: Sub 10 hours 45 minutes</li>
+<li>Portland Marathon - October 6, 2024 - Goal Sub 2 hours 40 minutes</li></ul>
+    <p>Thanks for reading!</p>
+    <img src="vancouver-half-marathon/gallery-1.png" alt="" class="inline-photo" loading="lazy">
+    <img src="vancouver-half-marathon/gallery-2.png" alt="" class="inline-photo" loading="lazy">
+    <img src="vancouver-half-marathon/gallery-3.png" alt="" class="inline-photo" loading="lazy">
+    <img src="vancouver-half-marathon/gallery-4.png" alt="" class="inline-photo" loading="lazy">
+    <img src="vancouver-half-marathon/gallery-5.png" alt="" class="inline-photo" loading="lazy">
+    <h2>Copyright 2025 ©The Dailyee</h2>
+    <p>[Terms and Policies](https://www.thedailyee.com/privacy-policy) [https://www.facebook.com/thedailyee](https://www.facebook.com/thedailyee "Go to Facebook page")[https://www.instagram.com/the.dailyee](https://www.instagram.com/the.dailyee "Go to Instagram page")[https://www.linkedin.com/](https://www.linkedin.com/ "Go to Linkedin-in page")</p>
+  </article>
 </main>
 
 <footer>
